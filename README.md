@@ -1,7 +1,5 @@
-# Anarch
-
-*Anarch - ESPboy port*
-original full source code [check here](https://gitlab.com/drummyfish/anarch)
+# Anarch - ESPboy port
+*[original Anarch code here](https://gitlab.com/drummyfish/anarch)*
 
 
 ![](media/logo_big.png)
