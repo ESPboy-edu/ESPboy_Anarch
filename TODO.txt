@@ -1,0 +1,248 @@
+general:
+
+- Profile, epsecially Pokitto, small periodical tearing can be noticed (some
+  periodical updates probably).
+- Compile Pokitto overclocked version.
+- Refactor.
+- Check grammar in source code.
+- Polish the emscripten version (is basically unplayable on phone, horizontal
+  mode doesnt show whole screen etc).
+- Polish controls (bindings, mouse sensitivity etc.).
+- Polish weapon switching, maybe add a key to switch to previous weapon?
+- Port to OpenDingux.
+- Rewrite python scripts to C (faster, less bloat, fewer dependencies).
+- try to remove the debug flag (-g1) from compiler and see if it decreases size
+- compile on BSD and WinShit
+- run on raspbery pi
+
+level ideas:
+
+- outline:
+  1.  City, player sees the big Macrochip building (a smaller one) in the
+      distance and has to get to its entrance. Beginning of the level is linear
+      and serves as a tutorial, things like exploding barrels or acess cards are
+      explained.
+  2.  Inside Macrochip smaller building. End leads to an elevator that goes
+      under the ground.
+  3.  Warehouse:
+  4.  Factory:
+  5.  Small boss level:
+  6.  City, player is on the other side of the smaller Macrochip building, the
+      level partially overlaps with level 1, but the player can now go further.
+      Big Macrochip HQ (skyscraper) is seen in the distance, player has to get
+      to its entrance.
+  7.  Inside skyscraper, 1st floor.
+  8.  Inside skyscraper, higher floor.
+  9.
+  10. Final boss level: on top of the skyscraper, player climbs up in a spiral
+      towards the roof. There is a boss (or two) on the top with a few smaller
+      ones, the exit is blocked by a lot of trapped warriors which the player
+      has to slowly kill, which means he has to first get rid of the other
+      monsters.
+
+- Long section under squeezer, player has to run and keep hiding in side rooms   DONE
+  to not get killed.
+- Elevator with 4 exits, on each world side.                                     DONE
+- Teleport to a football stadium outside?                                        DONE
+- Key to door that need to be unlocked can also unlock a door in previously      DONE
+  visited area which will just hide secret.                                      
+- text on the wall -- some letter can be create- text on the wall --             DONE
+  some letter can be createdd
+- Enemies can be placed on a single square higher fround to prevent their        DONE
+  movement.
+- Many teleports at place A and one teleport at place B, giving a low chance of  DONE
+  reaching B: player has to gring teleports until randomly lands in B.
+- Underground storage level start: be at the bottom of an elevator pit.
+- ceiling with "holes" through which sky (background) can be seen -- can be done DONE
+  by having the ceiling texture set transparent and then alternating ceiling and
+  no ceiling
+- boss level: skyscraper top, player goes upwards in a spiral along the OUTSIDE  DONE
+  side of the skyscraper
+- two levels could partially overlap, e.g. level one, a city, could overlap      DONE
+  with a later city level, the player could recognize he's e.g. on the other
+  side of a channel or a wall that he was before
+- invisible maze                                                                 kinda
+- wall made of elevators (or squeezers), serving as a big auto-opening gate      DONE
+- a key spot to which the player can only get by jumping from a distant high
+  elevated place
+- player has to jump from one elevator to another, which can only be done when   kinda
+  they're both moving down
+- multiple doors in a row (can look interesting)                                 DONE
+- narrow (1 square wide) corridor filled with enemies blocking it
+- narrow (1 square wide) corridor blocked by barrels that have to be exploded    DONE
+- teleport on elevator?
+- teleport at the bottom of a 1 square narrow hole, by jumping into the hole     DONE
+  the player gets teleported
+- narrow corridor with elevator
+- maze from walls and/or props                                                   DONE
+- narrow bridge with platformer elements over a hole full of enemies             kinda
+- server room                                                                    kinda
+- window (low unpassable ceiling) through which finish can be seen from the
+  start location of the level
+- three locked doors in a row at the beginning of the level, the player has
+  to go to three different locations for each key -- a "hub" level
+- office building                                                                kinda
+- plasma bots guarding a big stock (store) of plasma ammo
+- warrior (enemy) right before the player at the start of the level
+- T-shaped corridor in which two rocket-firing enemies stand facing each other   DONE
+  so that the player can kill them by stepping between them, letting them fire,
+  then stepping back, making them kill each other
+- enemy trapped between barrels
+- teleport that leads to another teleport which is on a single high elevated
+  square from which the player has to jump down and won't be able to return,
+  making it a de-facto one-way teleport
+- teleports placed so that the player can shoot himself with a rocket or plasma  DONE 
+  (for fun)
+- exploders in a maze, hiding behind corners
+- teleport leading to a center of big room full of enemies                       kinda
+- easter egg -- a level that looks funny on the map, e.g. forms a text or a      DONE
+  picture
+- squeezers with low-elevated base (a hole), on a side of a corridor -- if the
+  player is curious and jumps in, he's doomed to die -- perhaps there can be
+  many of them while one is in fact an elevator, which the player has to spot
+  and take in order to advance
+- bullet-shooting enemies behing windows (low ceilings) in rooms that can't be   DONE
+  reached
+- locked door that cannot be unlocked at the beginning of the level as a         DONE
+  visual indication of entrance
+- elevator in a narrow (1 square) vertical hole with doors at the top and        DONE
+  bottom, looking like an actual elevator in buildings
+- player goes through a difficult platformer section and at the end has to make  DONE
+  takes card and has to go through the whole section again in order to also
+  take the other one
+- big platform made of elevators that are moving in a short vertical distance,   DONE
+  giving an impression of a shaking, unstable platform
+- warrior and/or exploder right behing doors
+- tight maze made of barrels filled with warriors in which the player has to
+  only use knife in order not to explode the barrels and hurt himself
+- enemy on an elevator that doesn't stop at aligned with the floor, so that      DONE
+  the enemy is "trapped" on it and only appears briefly to shoot at the player
+- barrel on elevator
+- platforming vertical section in which the player is going upwards out of a big
+  hole
+- level with a lot of closed doors, done by including a door texture in the      DONE
+  level wall textures and then sing it for "fake" doors
+- invisible bridge (perhaps not straight) made of blockers (invisible walls)     kinda
+  over a hole, leading to an easter egg
+- start of level: a corner blocked by an invisible wall, to indicate entrance    DONE
+- small pyramid from diffetently elevated floor tiles
+
+bugs:
+
+done:
+
+- add headbob
+- Switch music tracks when level starts?
+- SDL: handle the quit signal so that the program can be closed by closing the
+  window.
+- On Win$hit builds display an anti-windshit text, by macro.
+- save/load (optional):
+  When a level is finished, the state at the beginning of the next one (health,
+  ammo, time, ...) is automatically saved and can be restored via load option in
+  the menu. This save as well as some other things (game progress, inagme
+  settings, ...) will be preserved even adter game restart if the platform
+  implements a saving function.
+- more levels
+- port to GB Meta
+- "Smart" weapon switching. e.g. don't auto switch to knife unless necessary, or
+  auto switch to a weapon from knife if ammo is picked up.
+- option for vertical auto aim
+- add blinking
+- make zBuffer 8bit only?
+- texture coords of floor walls should start from the floor? NO, CAUSES ISSUES
+- vertical visual noise when standing on elevator
+- sprite positioning inccuracy
+- try to compress images: store images as 4 bits per pixel + 16 color palette
+  (subset of the 256 color palette), check if performance stays ok
+- custom font
+- make barrels explode
+- enemies
+- weapons
+- sounds
+- add enemy moving/dying sound
+- create tables for monster and weapon stats in constants.h and read from that
+  instead of cheking with ifs
+- check if monsters are hit by bullets from completely up close
+- menu
+- GUI
+- make enemies not move through items:
+  create a 2D bit array saying at which squares there are colliding items, then
+  check collisions for both player and monsters against this array (elevate
+  these squares for collisions only) -- will also be faster
+- more level prop items
+- let player start with 100 HP, but allow for collecting a higher amount, e.g.
+  up to 150.
+- limit maximum ammo amounts
+- boss (the last one killed) should drop key card, for boss levels (hardcode).
+- music:
+  Probably just one long music track playing over and over -- KISS. The frontend
+  could have a callback function play_music_bar(n) which would be called by the
+  backend, the music track would be in sounds.h.
+- easter egg(s)
+- level 2D map (with revealing, bitmap), special key for quick displaying map
+- add universal corpse sprite?
+- if space left, try blurring (lerp) the level background, see how it looks
+- replace textures in distace with constant color for performance (setting)?
+- enemies close to a wall often don't get drawn
+- Architecture change: make platform files compilable and move main.c to game.h
+  (so that pokitto is .cpp, GB is .ino etc.).
+- Bytebeat is bugged on Pokitto, outputs different values than on PC. Fix this.
+- Player jumps higher on lower FPS, is able to jump on 4 squares. Also check the
+  distance jump.
+- disable transparency for walls for performance (setting)?
+- On desktop, SDL makes a high-pitched noise because of DC offset. Maybe put an
+  average DC offset for each track into assets so that music player can use this
+  to normalize the track?
+- Player is sometimes squeezed to death in door (appeared in level 9).
+  Investigate, fix.
+- Add option for advanced head bobbing which will also shear the camera along
+  with offsetting it.
+- compile with different compilers (gcc, clang, musl, ...) and settings, make
+  a build script that creates multiple binaries (with different combinations of
+  compilers and settings)
+- High pitch noise in SDL music AGAIN!
+- Add SW buttons to emscripten version so that it's playable on mobiles.
+- When SDL level starts without moving the mouse, the camera sometimes rotates
+  wildly.
+- Player can be thrown inside a wall (by an explosion it seems), seems to happen
+  near door. If this can't be prevented completely, automatically unstuck the
+  player into a playable area.
+- Try to recolor textures and give them a bit more of variety.
+- Even if music is off, after turning on a few samples are played (also on
+  Pokitto).
+- At the beginning "FPS cant be reached" is always displayed.
+- automatic tests: a frontend that will play the game, check the state, rendered
+  frames etc.
+- make SFML frontend
+- Add FOV options. RCL doesn't project sprites with different FOV correctly -
+  FIX!
+- When selecting continue from menu, the player shoots - fix!
+- FIX: running diagonally (forward + strafe) player can jump over 3 squares!
+- add time slowdown constant
+- On Pokitto/GB Meta sometimes after turn on the game starts midway loading the
+  first level.
+
+scratched:
+- option for disabling wall transparency, for performance?
+- weapon autoswitch: when a stronger weapon becomes available via picking up
+  ammo, maybe it should automatically be switched to (could have disable
+  setting)
+- Ability to play SFX slower to e.g. give some monsters lower pitch?
+- Force monsters that are squeezed (e.g. on door) to always move.
+- try to make z-buffer 3 line instead of 1D, possibly like this (to keep
+  performance):
+  - at compile time selct X = power of 2 closest to vertical resolution
+    (or something like that)
+  - in pixel funct do something like
+      if (pixel->y % X == 0 && pixel->y != 0)
+        write to z-buffer
+- open door by shooting at them?
+- add jump pads?
+- add "pletivo" transparent wall texture?
+- make monsters die when squeezed?
+- add robot deactivator item? (encourages "stealth" gameplay)
+- optional graphics enhance: vertical wall shading ("ambient occlusions")?
+- some monsters could reflect plasma, i.e. not be hurt by it, but reflect it
+  back towards the player
+- Port to ncurses?
+- Port to some fantasy console?
