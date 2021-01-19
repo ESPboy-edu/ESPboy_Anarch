@@ -1,6 +1,9 @@
 # Anarch - ESPboy port
-*[original Anarch code here](https://gitlab.com/drummyfish/anarch)*
-
+- Thanks to [Miloslav Číž @drummyfish](http://www.tastyfish.cz/) for this excellent project and porting to ESPboy
+- [ESPboy project details](www.espboy.com)
+- [Original Anarch code](https://gitlab.com/drummyfish/anarch)
+- ESPboy digital music and sound FX player by [Shiru](https://www.patreon.com/shiru8bit/posts)
+- Small ESPboy render optimization by RomanS
 
 ![](media/logo_big.png)
 
