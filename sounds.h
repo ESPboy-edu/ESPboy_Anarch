@@ -40,7 +40,7 @@
   Average value of each music track, can be used to correct DC offset issues if
   they appear.
 */
-SFG_PROGRAM_MEMORY uint8_t SFG_musicTrackAverages[SFG_TRACK_COUNT] =
+/*SFG_PROGRAM_MEMORY*/ uint8_t SFG_musicTrackAverages[SFG_TRACK_COUNT] =
   {14,7,248,148,6,8};
 
 struct
