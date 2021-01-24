@@ -49,6 +49,7 @@
 #include <Adafruit_MCP4725.h>
 #include <TFT_eSPI.h>
 #include <sigma_delta.h>
+#include <ESP8266WiFi.h>
 
 #if SFG_CAN_SAVE
 #include <ESP_EEPROM.h>
@@ -189,6 +190,8 @@ void SFG_playSound(uint8_t soundIndex, uint8_t volume)
 
 void setup()
 {
+  WiFi.mode(WIFI_OFF);
+  
   dac.begin(MCP4725address);
   delay (100);
   dac.setVoltage(0, false);
