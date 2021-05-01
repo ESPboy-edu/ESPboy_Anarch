@@ -45,24 +45,17 @@
 #define SFG_AVR 1
 
 #include <Arduino.h>
-#include <Adafruit_MCP23017.h>
-#include <Adafruit_MCP4725.h>
-#include <TFT_eSPI.h>
 #include <sigma_delta.h>
-#include <ESP8266WiFi.h>
+
+#include "lib/ESPboyInit.h"
+#include "lib/ESPboyInit.cpp"
+
 
 #if SFG_CAN_SAVE
 #include <ESP_EEPROM.h>
 #define SAVE_VALID_VALUE 73
 EEPROMClass eeprom;
 #endif
-
-#define MCP23017address 0
-#define MCP4725address  0x60
-
-Adafruit_MCP23017 mcp;
-Adafruit_MCP4725 dac;
-TFT_eSPI tft;
 
 #include "game.h"
 
@@ -72,7 +65,9 @@ TFT_eSPI tft;
 #include "sounds.h"
 
 
-uint8_t gamescreen[SFG_SCREEN_RESOLUTION_X * SFG_SCREEN_RESOLUTION_Y];
+ESPboyInit myESPboy;
+
+uint8_t *gamescreen;
 uint8_t keys;
 
 void SFG_setPixel(uint16_t x, uint16_t y, uint8_t colorIndex)
@@ -190,33 +185,9 @@ void SFG_playSound(uint8_t soundIndex, uint8_t volume)
 
 void setup()
 {
-  WiFi.mode(WIFI_OFF);
-  
-  dac.begin(MCP4725address);
-  delay (100);
-  dac.setVoltage(0, false);
-  mcp.begin(MCP23017address);
-  delay(100);
-
-  // buttons
-  for (uint8_t i = 0; i < 8; i++)
-  {
-    mcp.pinMode(i, INPUT);
-    mcp.pullUp(i, HIGH);
-  }
-
-  mcp.pinMode(8, OUTPUT);
-  mcp.digitalWrite(8, LOW);
-
-  tft.begin();
-  delay(100);
-  tft.setRotation(0);
-
-  tft.setAddrWindow(0, 128, 0, 128);
-  tft.fillScreen(TFT_BLACK);
-  tft.setSwapBytes(true);
-
-  dac.setVoltage(4095, true); // backlight
+ myESPboy.begin("ANARCH 3D");
+ gamescreen = new uint8_t [SFG_SCREEN_RESOLUTION_X * SFG_SCREEN_RESOLUTION_Y];
+ 
 
 #if SFG_CAN_SAVE
   eeprom.begin(SFG_SAVE_SIZE + 1);
@@ -240,7 +211,7 @@ void setup()
 
 
 void loop(){
-  keys = ~mcp.readGPIOAB() & 255;
+  keys = myESPboy.getKeys();
   SFG_mainLoopBody();
 
   static uint16_t scrbf[SFG_SCREEN_RESOLUTION_X];
@@ -249,7 +220,7 @@ void loop(){
   for (uint32_t j=0; j<SFG_SCREEN_RESOLUTION_Y; j++){
    for (uint32_t i=0; i<SFG_SCREEN_RESOLUTION_X; i++)
      scrbf[i]=paletteRGB565[gamescreen[readscrbf++]];
-   tft.pushPixels(&scrbf, SFG_SCREEN_RESOLUTION_X);
+   myESPboy.tft.pushPixels(&scrbf, SFG_SCREEN_RESOLUTION_X);
   }
 
 //Print fps to Serial
