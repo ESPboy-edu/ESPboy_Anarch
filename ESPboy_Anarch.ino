@@ -200,13 +200,13 @@ void setup()
 
   //pinMode(SOUND_PIN, OUTPUT);
 
-  sigmaDeltaSetup(0, F_CPU / 256);
+  sigmaDeltaSetup(0, 49000);
   sigmaDeltaAttachPin(SOUND_PIN);
   sigmaDeltaEnable();
 
   timer1_attachInterrupt(audioFillCallback);
   timer1_enable(TIM_DIV1, TIM_EDGE, TIM_LOOP);
-  timer1_write(ESP.getCpuFreqMHz() * 1000000 / SAMPLE_RATE);
+  timer1_write(80000000 / SAMPLE_RATE);
 }
 
 
